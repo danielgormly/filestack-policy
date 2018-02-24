@@ -8,7 +8,7 @@
 ![lmao](https://img.shields.io/badge/pls%20download-lmao-ff69b4.svg)
 
 
-Filestack policy for [Filestack.com](https://filestack.com). As described in the [creating policies](https://www.filestack.com/docs/security/creating-policies). I will be stripping the date-fns dependency soon.
+Filestack policy generator for [Filestack.com](https://filestack.com). As described in the [creating policies](https://www.filestack.com/docs/security/creating-policies) document.
 
 ## Requirements
  - Tested on Node v6+

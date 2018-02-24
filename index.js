@@ -1,5 +1,4 @@
 const crypto = require('crypto');
-const { addHours, isValid } = require('date-fns');
 
 let defaultSecret = ''
 
@@ -7,8 +6,16 @@ function setDefaultSecret(value) {
     defaultSecret = value;
 }
 
+function isValidDate() {
+	if (Object.prototype.toString.call(d) === "[object Date]") {
+		if (isNaN(d.valueOf())) return false;
+		else return true;
+	}
+	return false;
+}
+
 function FilestackPolicy({
-	expiry = addHours(Date.now(), 24), path, container,
+	expiry = Date.now() + 86400000, path, container,
 	call = [], secret = defaultSecret,
 }) {
     if (typeof secret !== 'string') {
@@ -40,7 +47,8 @@ FilestackPolicy.prototype.toJSON = function toJSON() {
 };
 
 FilestackPolicy.prototype.sign = function toJSON() {
-	if (!this.expiry || !isValid(this.expiry)) throw new Error('FilestackPolicy: Expiry invalid or unset. Policy generation failed.');
+	if (!this.expiry && !isValidDate(this.expiry)) throw new Error('FilestackPolicy: Expiry invalid or unset. Policy generation failed.');
+	if (this.expiry < Date.now()) console.log('Warning: Attempting to deliver expired policy.');
 	if (!this.path) throw new Error('FilestackPolicy: Path not set. Policy generation failed.');
 	if (!this.container && typeof this.container !== 'string') throw new Error('FilestackPolicy: Container not set. Policy generation failed.');
 	if (!this.secret && typeof this.container !== 'string') throw new Error('FilestackPolicy: Secret unset. Policy generation failed.');

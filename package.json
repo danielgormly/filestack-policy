@@ -1,11 +1,9 @@
 {
   "name": "filestack-policy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "📂🥞 FilestackPolicy generator for Filestack Security (filestack.com)",
   "main": "index.js",
-  "dependencies": {
-    "date-fns": "^2.0.0-alpha.7"
-  },
+  "dependencies": {},
   "devDependencies": {
     "tape": "^4.9.0"
   },
