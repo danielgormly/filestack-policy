@@ -1,0 +1,17 @@
+{
+  "name": "filestack-policy",
+  "version": "0.0.1",
+  "description": "📂🥞 FilestackPolicy generator for Filestack Security (filestack.com)",
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^2.0.0-alpha.7"
+  },
+  "devDependencies": {
+    "tape": "^4.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Gormly",
+  "license": "MIT"
+}
