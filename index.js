@@ -31,12 +31,6 @@ function FilestackPolicy({
 	this.secret = secret;
 }
 
-function toHmacSha256(obj, secret) {
-	return crypto.createHmac('sha256', secret)
-		.update(JSON.stringify(obj))
-		.digest('base64');
-}
-
 FilestackPolicy.prototype.toJSON = function toJSON() {
 	return {
 		expiry: this.expiry.valueOf(),
@@ -45,6 +39,10 @@ FilestackPolicy.prototype.toJSON = function toJSON() {
 		call: this.call,
 	};
 };
+
+FilestackPolicy.prototype.toURLEncoded = function() {
+	return JSON.stringify(this.toJSON());
+}
 
 FilestackPolicy.prototype.sign = function toJSON() {
 	if (!this.expiry && !isValidDate(this.expiry)) throw new Error('FilestackPolicy: Expiry invalid or unset. Policy generation failed.');

@@ -40,7 +40,9 @@ const signature = policy.sign() // Return URL safe policy signature
 
 **`module.setDefaultSecret(secret: string)`:** _Function_ Applies default secret for FilestackPolicy constructor to use. Later I will make this setDefaultOpts.
 
-**`FilestackPolicy.prototype.toJSON()`** _Function_ Returns URL-safe policy JSON.
+**`FilestackPolicy.prototype.toURLEncoded()`** _Function_ Returns URL safe policy.
+
+**`FilestackPolicy.prototype.toJSON()`** _Function_ Returns policy JSON.
 
 **`FilestackPolicy.prototype.sign()`** _Function_ Returns URL-safe signature (hashed with secret).
 
