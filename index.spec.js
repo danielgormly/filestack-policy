@@ -1,5 +1,5 @@
 const tape = require('tape');
-const { FilestackPolicy } = require('.');
+const { FilestackPolicy, setDefaultSecret } = require('.');
 
 tape.test('FilestackPolicy defaults', (t) => {
 	const policy = new FilestackPolicy({

@@ -31,10 +31,10 @@ function FilestackPolicy({
 	this.secret = secret;
 }
 
-function toHmacSha256(obj, secret) {
+function toHmacSha256(string, secret) {
 	return crypto.createHmac('sha256', secret)
-		.update(JSON.stringify(obj))
-		.digest('base64');
+		.update(string)
+		.digest('hex');
 }
 
 FilestackPolicy.prototype.toJSON = function toJSON() {
@@ -58,7 +58,7 @@ FilestackPolicy.prototype.sign = function toJSON() {
 	if (!this.container && typeof this.container !== 'string') throw new Error('FilestackPolicy: Container not set. Policy generation failed.');
 	if (!this.secret && typeof this.container !== 'string') throw new Error('FilestackPolicy: Secret unset. Policy generation failed.');
 	if (!this.call && !Array.isArray(this.call)) throw new Error('FilestackPolicy: Permission set (this.call) Policy generation failed.');
-	const hmac = toHmacSha256(this.toJSON(), this.secret);
+	const hmac = toHmacSha256(this.toURLEncoded(), this.secret);
 	return hmac;
 };
 
@@ -66,3 +66,4 @@ module.exports = {
 	FilestackPolicy,
 	setDefaultSecret,
 };
+
