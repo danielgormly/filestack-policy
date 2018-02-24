@@ -31,6 +31,12 @@ function FilestackPolicy({
 	this.secret = secret;
 }
 
+function toHmacSha256(obj, secret) {
+	return crypto.createHmac('sha256', secret)
+		.update(JSON.stringify(obj))
+		.digest('base64');
+}
+
 FilestackPolicy.prototype.toJSON = function toJSON() {
 	return {
 		expiry: this.expiry.valueOf(),
