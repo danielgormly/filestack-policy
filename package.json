@@ -1,6 +1,6 @@
 {
   "name": "filestack-policy",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "📂🥞 Filestack policy generator for authenticated Filestack requests (filestack.com)",
   "main": "index.js",
   "dependencies": {},

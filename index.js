@@ -47,7 +47,8 @@ FilestackPolicy.prototype.toJSON = function toJSON() {
 };
 
 FilestackPolicy.prototype.toURLEncoded = function() {
-	return JSON.stringify(this.toJSON());
+	const policyString = JSON.stringify(this.toJSON());
+	return new Buffer(policyString).toString('base64');
 }
 
 FilestackPolicy.prototype.sign = function toJSON() {
