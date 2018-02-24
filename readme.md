@@ -10,6 +10,9 @@
 
 Filestack policy for [Filestack.com](https://filestack.com). As described in the [creating policies](https://www.filestack.com/docs/security/creating-policies). I will be stripping the date-fns dependency soon.
 
+## Requirements
+ - Tested on Node v6+
+
 ## Install
 
 `npm i filestack-policy`
