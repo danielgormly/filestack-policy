@@ -24,9 +24,9 @@ const { FilestackPolicy } = require('filestack-policy');
 
 const policy = new FilestackPolicy({
     expiry: Date.now() + 3600 // default = 24hrs from present time
-    path: '/', // default === undefined e.g. *
+    path: '/path/to', // default === undefined e.g. *
     container: 's3bucket-name' // default === undefined e.g. *
-    call: ['']: // default === [''] (no permissions granted)
+    call: ['store', 'pick']: // default === [''] (no permissions granted)
     secret: 'YOUR_SECRET', // Required, no default. Alternatively import setDefaultSecret().
 });
 
