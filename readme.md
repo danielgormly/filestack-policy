@@ -1,4 +1,4 @@
-# koa2-static-middleware
+# filestack-policy
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
