@@ -3,6 +3,10 @@
   "version": "0.2.0",
   "description": "📂🥞 Filestack policy generator for authenticated Filestack requests (filestack.com)",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielgormly/filestack-policy.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "tape": "^4.9.0"
